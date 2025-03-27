@@ -1,3 +1,26 @@
+"""
+Module: approach.py
+This module defines the `Approach` abstract base class and related data structures for implementing
+custom approaches to interact with Azure Search and OpenAI services. It includes methods for
+searching, filtering, embedding computation, and generating system prompts.
+Classes:
+    - Document: Represents a document with metadata and methods for serialization.
+    - ThoughtStep: Represents a step in a thought process with a title, description, and optional properties.
+    - Approach: Abstract base class for implementing custom approaches to interact with Azure Search and OpenAI.
+Methods:
+    - Document.serialize_for_results: Serializes the document into a dictionary format for results.
+    - Document.trim_embedding: Trims the embedding list for display purposes.
+    - Approach.__init__: Initializes the `Approach` class with required dependencies and configurations.
+    - Approach.build_filter: Builds a filter string based on overrides and authentication claims.
+    - Approach.search: Performs a search using Azure Search with optional semantic and vector search capabilities.
+    - Approach.get_sources_content: Extracts and formats content from search results for display.
+    - Approach.get_citation: Generates a citation string for a given source page.
+    - Approach.compute_text_embedding: Computes a text embedding using OpenAI's embedding model.
+    - Approach.compute_image_embedding: Computes an image embedding using Azure Vision API.
+    - Approach.get_system_prompt_variables: Generates system prompt variables based on an override prompt.
+    - Approach.run: Abstract method to be implemented for executing a specific approach.
+    - Approach.run_stream: Abstract method to be implemented for executing a specific approach with streaming.
+"""
 import os
 from abc import ABC
 from dataclasses import dataclass
